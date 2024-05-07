@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "94A56EE6-C9B0-4D66-89CD-E36897D56F94",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "diagnosticCollectionPolicy" : "Never",
+    "preferredScreenCaptureFormat" : "screenshot",
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:TurboCalculator.xcodeproj",
+      "identifier" : "0501C6FF293B61C80073A10F",
+      "name" : "TurboCalculator"
+    },
+    "testExecutionOrdering" : "random",
+    "uiTestingScreenshotsLifetime" : "keepNever"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "selectedTests" : [
+        "UITestsLaunchTests\/testScreenshot()"
+      ],
+      "target" : {
+        "containerPath" : "container:TurboCalculator.xcodeproj",
+        "identifier" : "F5804C9F2BE95815004EB41E",
+        "name" : "UITests"
+      }
+    }
+  ],
+  "version" : 1
+}
