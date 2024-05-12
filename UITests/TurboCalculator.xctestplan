@@ -18,13 +18,21 @@
       "name" : "TurboCalculator"
     },
     "testExecutionOrdering" : "random",
-    "uiTestingScreenshotsLifetime" : "keepNever"
+    "testTimeoutsEnabled" : true
   },
   "testTargets" : [
     {
       "parallelizable" : true,
-      "selectedTests" : [
-        "UITestsLaunchTests\/testScreenshot()"
+      "skippedTests" : [
+        "UITestsLaunchTests\/testAC()",
+        "UITestsLaunchTests\/testDebugTree()",
+        "UITestsLaunchTests\/testFail()",
+        "UITestsLaunchTests\/testRecorded()",
+        "UITestsLaunchTests\/testSafari()",
+        "UITestsLaunchTests\/testScreenshot()",
+        "UITestsLaunchTests\/testSkip()",
+        "UITestsLaunchTests\/testSum9()",
+        "UITestsLaunchTests\/testSum9Faster()"
       ],
       "target" : {
         "containerPath" : "container:TurboCalculator.xcodeproj",
