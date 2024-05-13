@@ -20,9 +20,9 @@ jobs:
       - name: Run all UI-tests
         run: fastlane ios app_test
       - name: Save xcresult
+        if: ${{ always() }}
         uses: actions/upload-artifact@v4.3.3
         with:
           name: 'Report'
           path: 'Report'
-          retention-days: 15
-        
+          retention-days: 15       
