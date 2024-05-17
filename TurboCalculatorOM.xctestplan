@@ -1,0 +1,18 @@
+{
+  "configurations" : [
+    {
+      "id" : "F52095BD-B431-4249-805F-EE0A8E457752",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+
+  ],
+  "version" : 1
+}
