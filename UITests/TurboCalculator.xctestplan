@@ -31,6 +31,13 @@
         "identifier" : "F5804C9F2BE95815004EB41E",
         "name" : "UITests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:TurboCalculator.xcodeproj",
+        "identifier" : "265579C32BEDC17100B473D8",
+        "name" : "TurboCalculatorUITests"
+      }
     }
   ],
   "version" : 1

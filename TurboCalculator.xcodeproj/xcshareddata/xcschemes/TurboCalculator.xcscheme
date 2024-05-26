@@ -72,6 +72,16 @@
                ReferencedContainer = "container:TurboCalculator.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "265579C32BEDC17100B473D8"
+               BuildableName = "TurboCalculatorUITests.xctest"
+               BlueprintName = "TurboCalculatorUITests"
+               ReferencedContainer = "container:TurboCalculator.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
