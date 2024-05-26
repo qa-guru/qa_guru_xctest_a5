@@ -47,6 +47,7 @@ playground.xcworkspace
 # .swiftpm
 
 .build/
+.idea/
 
 # CocoaPods
 #
@@ -89,3 +90,6 @@ fastlane/test_output
 
 iOSInjectionProject/
 **.DS_Store
+
+# xcresult
+*.xcresult

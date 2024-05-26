@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -53,6 +53,7 @@
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bct-ns-jpe">
                                 <rect key="frame" x="195" y="628" width="80" height="80"/>
                                 <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="ThreeButton"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="9Nq-VL-jJB"/>
                                     <constraint firstAttribute="height" constant="80" id="Vxf-37-05E"/>
@@ -69,6 +70,7 @@
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYu-HU-e6D">
                                 <rect key="frame" x="107" y="628" width="80" height="80"/>
                                 <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="TwoButton"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Idt-EQ-02a"/>
                                     <constraint firstAttribute="height" constant="80" id="OKy-f9-vsC"/>
@@ -85,6 +87,7 @@
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEZ-SH-B9c">
                                 <rect key="frame" x="19" y="628" width="80" height="80"/>
                                 <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="OneButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Die-aL-UYn"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="f72-eb-p76"/>
@@ -101,6 +104,7 @@
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQh-Kz-Hf2">
                                 <rect key="frame" x="19" y="540" width="80" height="80"/>
                                 <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="FourButton"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="NfY-Bm-HgM"/>
                                     <constraint firstAttribute="height" constant="80" id="VNj-Va-76o"/>
@@ -117,6 +121,7 @@
                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RaJ-Tg-hNi">
                                 <rect key="frame" x="19" y="452" width="80" height="80"/>
                                 <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="SevenButton"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Mbf-ol-NZk"/>
                                     <constraint firstAttribute="height" constant="80" id="Qxh-R9-J3G"/>
@@ -133,6 +138,7 @@
                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y23-2X-OV5">
                                 <rect key="frame" x="107" y="452" width="80" height="80"/>
                                 <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="EightButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="cNk-Am-HKe"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="hL6-Iv-3j8"/>
@@ -149,6 +155,7 @@
                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alX-hs-pLh">
                                 <rect key="frame" x="195" y="452" width="80" height="80"/>
                                 <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="NineButton"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="6FG-bg-zJY"/>
                                     <constraint firstAttribute="height" constant="80" id="JMe-Hi-eFQ"/>
@@ -211,6 +218,7 @@
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0iK-ev-RxX">
                                 <rect key="frame" x="107" y="540" width="80" height="80"/>
                                 <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="FiveButton"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="wFX-Ds-cAN"/>
                                     <constraint firstAttribute="height" constant="80" id="xeS-gE-goW"/>
@@ -227,6 +235,7 @@
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcc-An-liT">
                                 <rect key="frame" x="195" y="540" width="80" height="80"/>
                                 <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="SixButton"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Ea5-QT-1p0"/>
                                     <constraint firstAttribute="height" constant="80" id="fvK-10-8eP"/>
@@ -243,6 +252,7 @@
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUo-XU-yg9">
                                 <rect key="frame" x="283" y="716" width="80" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="EqualButton"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="OyU-wd-zXq"/>
                                     <constraint firstAttribute="height" constant="80" id="qiY-LB-CnY"/>
@@ -259,6 +269,7 @@
                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8KG-NP-JEa">
                                 <rect key="frame" x="283" y="628" width="80" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="PlusButton"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Asf-69-PII"/>
                                     <constraint firstAttribute="height" constant="80" id="Atn-9c-xnR"/>
@@ -275,6 +286,7 @@
                             <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJj-DP-Rzi">
                                 <rect key="frame" x="283" y="540" width="80" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="MinusButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="CFJ-G6-YEw"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="iiK-JY-s6n"/>
@@ -291,6 +303,7 @@
                             <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPb-Kj-9OT">
                                 <rect key="frame" x="283" y="452" width="80" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="MultiplyButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="5gK-BC-Umh"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="TDl-Tl-anN"/>
@@ -307,6 +320,7 @@
                             <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19j-un-l0y">
                                 <rect key="frame" x="283" y="364" width="80" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="DevideButton"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="7mb-5J-6uj"/>
                                     <constraint firstAttribute="height" constant="80" id="K53-03-4la"/>
