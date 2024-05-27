@@ -23,17 +23,6 @@
   "testTargets" : [
     {
       "parallelizable" : true,
-      "skippedTests" : [
-        "UITestsLaunchTests\/testAC()",
-        "UITestsLaunchTests\/testDebugTree()",
-        "UITestsLaunchTests\/testFail()",
-        "UITestsLaunchTests\/testRecorded()",
-        "UITestsLaunchTests\/testSafari()",
-        "UITestsLaunchTests\/testScreenshot()",
-        "UITestsLaunchTests\/testSkip()",
-        "UITestsLaunchTests\/testSum9()",
-        "UITestsLaunchTests\/testSum9Faster()"
-      ],
       "target" : {
         "containerPath" : "container:TurboCalculator.xcodeproj",
         "identifier" : "F5804C9F2BE95815004EB41E",
