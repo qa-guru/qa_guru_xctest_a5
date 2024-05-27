@@ -7,7 +7,7 @@ brew fastlane
 start fastlane into project dir:
 fastlane
 
-edit "Fastlane" fail
+minoredit fastlane/Fastfile
 
 The easiest way to run tests of your iOS and Mac app is Scan.
 Scan makes it easy to run tests of your iOS and Mac app on a simulator or connected device.
