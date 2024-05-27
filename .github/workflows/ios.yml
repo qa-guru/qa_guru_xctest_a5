@@ -19,7 +19,7 @@ jobs:
       - name: Run all tests
         run: fastlane ios app_test
       - name: Save xcresult
-        uses: action/upload-artifact@v4.3.3
+        uses: actions/upload-artifact@v4.3.3
         with:
           name: 'Report'
           path: 'Report'
