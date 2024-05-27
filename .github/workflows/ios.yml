@@ -1,0 +1,26 @@
+name: iOS sample autotests
+on:
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build and Test default scheme using any available iPhone simulator
+    runs-on: qaguru
+
+    steps:
+      - name: Get current env
+        run: env
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build iOS app
+        run: fastlane ios app_build
+      - name: Run all tests
+        run: fastlane ios app_test
+      - name: Save xcresult
+        uses: action/upload-artifact@v4.3.3
+        with:
+          name: 'Report'
+          path: 'Report'
+          retantion-days: 15
