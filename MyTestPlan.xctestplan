@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+    {
+      "id" : "6FE75694-02FE-4DED-BCA2-D148BCC4A19A",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "preferredScreenCaptureFormat" : "screenshot",
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "UITestsLaunchTests"
+      ],
+      "target" : {
+        "containerPath" : "container:TurboCalculator.xcodeproj",
+        "identifier" : "F5804C9F2BE95815004EB41E",
+        "name" : "UITests"
+      }
+    }
+  ],
+  "version" : 1
+}
