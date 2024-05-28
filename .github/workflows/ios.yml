@@ -6,8 +6,12 @@ on:
 
 jobs:
   build:
-    name: Build and Test default scheme using any available iPhone simulator
+    name: Build and Test on selected device
     runs-on: qaguru
+    strategy:
+      matrix:
+        device: [iPhone 15, iPhone 14, iPhone 13]
+   
 
     steps:
       - name: Get current env
@@ -24,10 +28,10 @@ jobs:
         run: echo "${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}" >> $GITHUB_STEP_SUMMARY
    
       - name: Build iOS app
-        run: fastlane ios app_build
+        run: fastlane ios app_build device:"${{ matrix.device }}"
         
       - name: Run all tests
-        run: fastlane ios app_test
+        run: fastlane ios app_test device:"${{ matrix.device }}"
         
       - name: Save xcresult
         if: ${{ always() }}
