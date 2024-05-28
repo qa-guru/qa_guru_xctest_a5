@@ -11,6 +11,7 @@ jobs:
     strategy:
       matrix:
         device: [iPhone 15, iPhone 14, iPhone 13]
+        test_plan: [TurboCalculator, TurboCalculator_2]
    
 
     steps:
@@ -28,10 +29,10 @@ jobs:
         run: echo "${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}" >> $GITHUB_STEP_SUMMARY
    
       - name: Build iOS app
-        run: fastlane ios app_build device:"${{ matrix.device }}"
+        run: fastlane ios app_build device:"${{ matrix.device }}" scheme:"${{ matrix.test_plan }}"
         
-      - name: Run all tests
-        run: fastlane ios app_test device:"${{ matrix.device }}"
+      - name: Run test plan
+        run: fastlane ios app_test device:"${{ matrix.device }}" scheme:"${{ matrix.test_plan }}"
         
       - name: Save xcresult
         if: ${{ always() }}
