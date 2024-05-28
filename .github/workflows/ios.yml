@@ -73,7 +73,7 @@ jobs:
         run: |
           curl -OL https://github.com/allure-framework/allure-cli/releases/latest/download/allure
           chmod +x allure
-          mv allure /usr/local/bin/
+          mv allure /usr/local/bin/allure
 
       - name: Generate Allure Report
         if: ${{ always()}}
@@ -96,6 +96,8 @@ jobs:
       - name: Print commit message
         if: ${{ always()}}
         run: |
-          echo "Last Commit massage: "${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}" >> $GITHUB_STEP_SUMMARY
+          echo ":fire: - :coffee: - :panda_face: - :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "Last Commit massage: ${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}" >> $GITHUB_STEP_SUMMARY
           echo "Test plan: ${{ github.event.inputs.test_plan }}" >> $GITHUB_STEP_SUMMARY
           echo "Test device: ${{ github.event.inputs.device }}" >> $GITHUB_STEP_SUMMARY
+          echo ":beer: - :eyes: - :cold_sweat: - :trophy:" >> $GITHUB_STEP_SUMMARY
