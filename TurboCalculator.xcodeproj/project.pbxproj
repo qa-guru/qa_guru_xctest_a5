@@ -38,10 +38,8 @@
 		0501C711293B61CB0073A10F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92B01C172BF0EBF800E7910A /* HW_5_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HW_5_Tests.swift; sourceTree = "<group>"; };
 		92DE44C92C0592B100A5EB86 /* UITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UITests; sourceTree = "<group>"; };
-		92DE44CB2C05936300A5EB86 /* TurboCalculator_2.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = TurboCalculator_2.xctestplan; path = ../TurboCalculator_2.xctestplan; sourceTree = "<group>"; };
 		F5804CA02BE95815004EB41E /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5804CA42BE95815004EB41E /* UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F5804CAB2BE95A0F004EB41E /* TurboCalculator.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = TurboCalculator.xctestplan; path = UITests/TurboCalculator.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +64,6 @@
 			isa = PBXGroup;
 			children = (
 				92DE44C92C0592B100A5EB86 /* UITests */,
-				F5804CAB2BE95A0F004EB41E /* TurboCalculator.xctestplan */,
-				92DE44CB2C05936300A5EB86 /* TurboCalculator_2.xctestplan */,
 				0501C702293B61C90073A10F /* TurboCalculator */,
 				F5804CA12BE95815004EB41E /* UITests */,
 				0501C701293B61C90073A10F /* Products */,

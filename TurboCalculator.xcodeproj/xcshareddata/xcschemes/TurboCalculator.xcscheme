@@ -29,11 +29,8 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:UITests/TurboCalculator.xctestplan"
+            reference = "container:../TurboCalculator_2.xctestplan"
             default = "YES">
-         </TestPlanReference>
-         <TestPlanReference
-            reference = "container:../TurboCalculator_2.xctestplan">
          </TestPlanReference>
       </TestPlans>
       <Testables>
