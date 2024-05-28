@@ -18,11 +18,11 @@ default_platform(:ios)
 platform :ios do
 
   desc "Build iOS app"
-  lane :app_build do
+  lane :app_build do |options|
     scan(
     project: "TurboCalculator.xcodeproj",
     scheme: "TurboCalculator",
-    device: "iPhone 15",
+    device: options[:device],
     app_identifier: "QAGuru.Calculator",
     derived_data_path: "./QAGuruDD",
     build_for_testing: true
@@ -30,10 +30,10 @@ platform :ios do
   end
 
   desc "Run tests at iOS app"
-  lane :app_test do
+  lane :app_test do |options|
       scan(
               derived_data_path: "./QAGuruDD",
-                    device: "iPhone 15",
+                    device: options[:device],
                     test_without_building: true,
                     result_bundle: true,
                     app_identifier: "QAGuru.Calculator",
