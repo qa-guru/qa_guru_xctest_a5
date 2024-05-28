@@ -18,11 +18,11 @@ jobs:
         
       - name: Get commit message
         id: get_commit_message
-        run: echo "::set-output name=COMMIT_MESSAGE::$(git log -1 --pretty=%B)"
-
+        run: echo "COMMIT_MESSAGE=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
+        
       - name: Print commit message
         run: echo "${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}" >> $GITHUB_STEP_SUMMARY
-      
+   
       - name: Build iOS app
         run: fastlane ios app_build
         
