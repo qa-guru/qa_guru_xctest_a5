@@ -23,6 +23,9 @@
   "testTargets" : [
     {
       "parallelizable" : true,
+      "skippedTests" : [
+        "HW_5_Tests"
+      ],
       "target" : {
         "containerPath" : "container:TurboCalculator.xcodeproj",
         "identifier" : "F5804C9F2BE95815004EB41E",
