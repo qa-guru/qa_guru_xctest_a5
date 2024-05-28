@@ -27,6 +27,14 @@ jobs:
     steps:
       - name: Get current env
         run: env
+
+      - name: Clean cache files
+        run: |
+          rm -rf ./DerivedData
+          rm -rf ./Report
+          rm -rf ./allure-results
+          rm -rf xcresults
+          rm -rf allurectl
         
       - name: Checkout
         uses: actions/checkout@v4
