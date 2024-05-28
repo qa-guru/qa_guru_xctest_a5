@@ -18,8 +18,7 @@ on:
         type: choice
         options:
           - TurboCalculator
-          - TurboCalculator_2
-
+          
 jobs:
   build:
     name: Build and Test on selected device
