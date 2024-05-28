@@ -68,12 +68,14 @@ jobs:
         run: |
           ./xcresults export ./Report/TurboCalculator.xcresult ./allure-results
 
-      - name: Install Allure
+      - name: Install Allure using Homebrew
         if: ${{ always()}}
         run: |
-          curl -OL https://github.com/allure-framework/allure-cli/releases/latest/download/allure
-          chmod +x allure
-          mv allure /usr/local/bin/allure
+         brew install allure
+        
+      - name: Check Allure version
+        if: ${{ always()}}
+        run: allure --version
 
       - name: Generate Allure Report
         if: ${{ always()}}
