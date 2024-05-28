@@ -13,20 +13,12 @@ jobs:
         device: [iPhone 15, iPhone 14, iPhone 13]
         test_plan: [TurboCalculator, TurboCalculator_2]
    
-
     steps:
       - name: Get current env
         run: env
         
       - name: Checkout
         uses: actions/checkout@v4
-        
-      - name: Get commit message
-        id: get_commit_message
-        run: echo "COMMIT_MESSAGE=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
-        
-      - name: Print commit message
-        run: echo "${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}" >> $GITHUB_STEP_SUMMARY
    
       - name: Build iOS app
         run: fastlane ios app_build device:"${{ matrix.device }}" scheme:"${{ matrix.test_plan }}"
@@ -41,3 +33,10 @@ jobs:
           name: 'Report'
           path: 'Report'
           retention-days: 15
+
+      - name: Get commit message
+        id: get_commit_message
+        run: echo "COMMIT_MESSAGE=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
+        
+      - name: Print commit message
+        run: echo "${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}" >> $GITHUB_STEP_SUMMARY
