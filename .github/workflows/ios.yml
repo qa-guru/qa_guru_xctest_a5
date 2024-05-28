@@ -69,16 +69,19 @@ jobs:
           ./xcresults export ./Report/TurboCalculator.xcresult ./allure-results
 
       - name: Install Allure
+        if: ${{ always()}}
         run: |
           curl -OL https://github.com/allure-framework/allure-cli/releases/latest/download/allure
           chmod +x allure
           mv allure /usr/local/bin/
 
       - name: Generate Allure Report
+        if: ${{ always()}}
         run: |
           allure generate allure-results -o allure-report
 
       - name: Deploy to gh-pages
+        if: ${{ always()}}
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -93,7 +96,6 @@ jobs:
       - name: Print commit message
         if: ${{ always()}}
         run: |
-          echo ":fire:-:fire:-:fire:-:fire:-:fire:-:fire:-:fire:-:fire:-:fire:-:fire:" >> $GITHUB_STEP_SUMMARY
           echo "Last Commit massage: "${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}" >> $GITHUB_STEP_SUMMARY
           echo "Test plan: ${{ github.event.inputs.test_plan }}" >> $GITHUB_STEP_SUMMARY
           echo "Test device: ${{ github.event.inputs.device }}" >> $GITHUB_STEP_SUMMARY
