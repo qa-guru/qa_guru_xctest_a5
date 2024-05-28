@@ -23,8 +23,8 @@ platform :ios do
       scheme: "TurboCalculator",
       app_identifier: "QAGuru.Calculator",
       derived_data_path: "./QAGuruDD",
-      build_for_testing: true
-      clean: true,
+      build_for_testing: true,
+      clean: true
     )
   end
 
