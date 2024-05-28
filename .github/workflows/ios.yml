@@ -96,7 +96,7 @@ jobs:
       - name: Print commit message
         if: ${{ always()}}
         run: |
-          echo "### Let`s test! :smile:" >> $GITHUB_STEP_SUMMARY
+          echo "### QAGURU TESTS! :fire:" >> $GITHUB_STEP_SUMMARY
           echo "${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}" >> $GITHUB_STEP_SUMMARY
           echo "Test plan: ${{ github.event.inputs.test_plan }}" >> $GITHUB_STEP_SUMMARY
-          echo "Test plan: ${{ github.event.inputs.device }}" >> $GITHUB_STEP_SUMMARY
+          echo "Test device: ${{ github.event.inputs.device }}" >> $GITHUB_STEP_SUMMARY
