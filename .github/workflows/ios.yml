@@ -28,6 +28,15 @@ jobs:
     steps:
       - name: Get current env
         run: env
+        working-directory: ${{ github.workspace }}
+
+      - name: Clean cache files
+        run: |
+          rm -rf ./DerivedData
+          rm -rf ./Report
+          rm -rf ./allure-results
+          rm -rf xcresults
+          rm -rf allurectl
         
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,9 +58,34 @@ jobs:
           path: 'Report'
           retention-days: 15
 
+      - name: Install xcresults
+        if: ${{ always()}}
+        run: |
+          curl -OL https://github.com/eroshenkoam/xcresults/releases/latest/download/xcresults
+          chmod +x xcresults
+
+      - name: Convert xcresult to allure-results
+        if: ${{ always()}}
+        run: |
+          ./xcresults export ./Report/TurboCalculator.xcresult ./allure-results
+
+      - name: Save allure-results
+        if: ${{ always()}}
+        uses: actions/upload-artifact@v4.1.0
+        with:
+          name: Allure
+          path: allure-results
+          retention-days: 15
+
       - name: Get commit message
+        if: ${{ always()}}
         id: get_commit_message
         run: echo "COMMIT_MESSAGE=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
         
       - name: Print commit message
-        run: echo "${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}" >> $GITHUB_STEP_SUMMARY
+        if: ${{ always()}}
+        run: |
+          echo "### Let`s test! :smile:" >> $GITHUB_STEP_SUMMARY
+          echo "${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}" >> $GITHUB_STEP_SUMMARY
+          echo "Test plan: ${{ github.event.inputs.test_plan }}" >> $GITHUB_STEP_SUMMARY
+          echo "Test plan: ${{ github.event.inputs.device }}" >> $GITHUB_STEP_SUMMARY
