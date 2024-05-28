@@ -36,8 +36,7 @@ jobs:
           rm -rf ./Report
           rm -rf ./allure-results
           rm -rf xcresults
-          rm -rf allurectl
-        
+      
       - name: Checkout
         uses: actions/checkout@v4
    
@@ -69,37 +68,22 @@ jobs:
         run: |
           ./xcresults export ./Report/TurboCalculator.xcresult ./allure-results
 
-      - name: Get Allure history # Step to retrieve Allure history
-        uses: actions/checkout@v3
-        if: always() # Execute even if previous steps fail
-        continue-on-error: true # Continue execution even if the step fails
-        with:
-          ref: gh-pages # Specify the branch to retrieve Allure history from
-          path: gh-pages # Set the destination path for Allure history
+      - name: Install Allure
+        run: |
+          curl -OL https://github.com/allure-framework/allure-cli/releases/latest/download/allure
+          chmod +x allure
+          mv allure /usr/local/bin/
 
-      - name: Allure report action # Step to generate Allure report
-        uses: simple-elf/allure-report-action@master
-        if: always() # Execute even if previous steps fail
-        with:
-          allure_results: ${{ vars.ALLURE_RESULTS_PATH }} # Specify the directory containing Allure results
-          allure_history: allure-history # Specify the directory to store Allure history
-          keep_reports: 5 # Specify the number of previous reports to keep
-          
-      - name: Deploy Allure report to GitHub Pages # Step to deploy Allure report to GitHub Pages
-        if: always() # Execute even if previous steps fail
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # Provide the GitHub token for authentication
-          publish_branch: gh-pages # Specify the branch to publish the report to
-          publish_dir: allure-history # Specify the directory containing the report
+      - name: Generate Allure Report
+        run: |
+          allure generate allure-results -o allure-report
 
-      - name: Save allure-results
-        if: ${{ always()}}
-        uses: actions/upload-artifact@v4.1.0
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          name: Allure
-          path: allure-results
-          retention-days: 15
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: allure-report
+          publish_branch: gh-pages
 
       - name: Get commit message
         if: ${{ always()}}
@@ -109,6 +93,7 @@ jobs:
       - name: Print commit message
         if: ${{ always()}}
         run: |
-          echo "${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}" >> $GITHUB_STEP_SUMMARY
+          echo ":fire:-:fire:-:fire:-:fire:-:fire:-:fire:-:fire:-:fire:-:fire:-:fire:" >> $GITHUB_STEP_SUMMARY
+          echo "Last Commit massage: "${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}" >> $GITHUB_STEP_SUMMARY
           echo "Test plan: ${{ github.event.inputs.test_plan }}" >> $GITHUB_STEP_SUMMARY
-          echo "Test plan: ${{ github.event.inputs.device }}" >> $GITHUB_STEP_SUMMARY
+          echo "Test device: ${{ github.event.inputs.device }}" >> $GITHUB_STEP_SUMMARY
