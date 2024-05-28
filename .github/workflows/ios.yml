@@ -3,16 +3,28 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
+    inputs:
+      device:
+        description: 'Select test device'
+        required: true
+        type: choice
+        options:
+          - iPhone 15
+          - iPhone 14
+          - iPhone 13
+      test_plan:
+        description: 'Select test plan'
+        required: true
+        type: choice
+        options:
+          - TurboCalculator
+          - TurboCalculator_2
 
 jobs:
   build:
     name: Build and Test on selected device
     runs-on: qaguru
-    strategy:
-      matrix:
-        device: [iPhone 15, iPhone 14, iPhone 13]
-        test_plan: [TurboCalculator, TurboCalculator_2]
-   
+    
     steps:
       - name: Get current env
         run: env
@@ -21,10 +33,14 @@ jobs:
         uses: actions/checkout@v4
    
       - name: Build iOS app
-        run: fastlane ios app_build device:"${{ matrix.device }}" scheme:"${{ matrix.test_plan }}"
+        run:
+          fastlane ios app_build device:"${{ github.event.inputs.device }}"
+          scheme:"${{ github.event.inputs.test_plan }}"
         
-      - name: Run test plan
-        run: fastlane ios app_test device:"${{ matrix.device }}" scheme:"${{ matrix.test_plan }}"
+      - name: Run Test Plan tests
+        run:
+          fastlane ios app_test device:"${{ github.event.inputs.device }}"
+          scheme:"${{ github.event.inputs.test_plan }}"
         
       - name: Save xcresult
         if: ${{ always() }}
