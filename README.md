@@ -13,4 +13,4 @@ The easiest way to run tests of your iOS and Mac app is Scan.
 Scan makes it easy to run tests of your iOS and Mac app on a simulator or connected device.
 https://docs.fastlane.tools/actions/scan/
 -----------------------------------------------
-[**Allure report**]([https://www.example.com](https://doroshenkodenis.github.io/qa_guru_xctest_a5/))
+[Allure report]([https://www.example.com](https://doroshenkodenis.github.io/qa_guru_xctest_a5/))
