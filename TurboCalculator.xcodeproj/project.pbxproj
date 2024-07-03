@@ -13,6 +13,7 @@
 		0501C70B293B61C90073A10F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0501C709293B61C90073A10F /* Main.storyboard */; };
 		0501C70D293B61CB0073A10F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0501C70C293B61CB0073A10F /* Assets.xcassets */; };
 		0501C710293B61CB0073A10F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0501C70E293B61CB0073A10F /* LaunchScreen.storyboard */; };
+		CEB562642C35C5BB009A27C9 /* newTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB562632C35C5BB009A27C9 /* newTests.swift */; };
 		F5804CA52BE95815004EB41E /* UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5804CA42BE95815004EB41E /* UITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		0501C70C293B61CB0073A10F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0501C70F293B61CB0073A10F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0501C711293B61CB0073A10F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEB562632C35C5BB009A27C9 /* newTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newTests.swift; sourceTree = "<group>"; };
 		F5804CA02BE95815004EB41E /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5804CA42BE95815004EB41E /* UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F5804CAB2BE95A0F004EB41E /* TurboCalculator.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = TurboCalculator.xctestplan; path = UITests/TurboCalculator.xctestplan; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				F5804CA42BE95815004EB41E /* UITestsLaunchTests.swift */,
+				CEB562632C35C5BB009A27C9 /* newTests.swift */,
 			);
 			path = UITests;
 			sourceTree = "<group>";
@@ -145,7 +148,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					0501C6FF293B61C80073A10F = {
 						CreatedOnToolsVersion = 14.1;
@@ -210,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB562642C35C5BB009A27C9 /* newTests.swift in Sources */,
 				F5804CA52BE95815004EB41E /* UITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
