@@ -12,6 +12,7 @@ final class UITestsLaunchTests: XCTestCase {
     let app = XCUIApplication()
     let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
 
+    
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
@@ -22,8 +23,10 @@ final class UITestsLaunchTests: XCTestCase {
         let attachment = XCTAttachment(screenshot: app.screenshot())
         attachment.name = "Launch Screen"
         attachment.lifetime = .keepAlways
+        print(app.debugDescription)
         add(attachment)
     }
+    
     
     func testDebugTree() throws {
         app.launch()
@@ -31,29 +34,29 @@ final class UITestsLaunchTests: XCTestCase {
     }
     
     func testSum9() throws {
-        let button4 = app.buttons["4"]
+        let button4 = app.buttons["FourButton"]
         
         app.launch()
         button4.tap()
         app.buttons["+"].tap()
-        app.buttons["5"].tap()
+        app.buttons["FiveButton"].tap()
         app.buttons["="].tap()
         XCTAssert(app.buttons["resultString"].staticTexts["9"].exists)
     }
     
     func testSum9Faster() throws {
         app.launch()
-        app.buttons["4"].firstMatch.tap()
+        app.buttons["FourButton"].firstMatch.tap()
         app.buttons["+"].firstMatch.tap()
-        app.buttons["5"].firstMatch.tap()
+        app.buttons["FiveButton"].firstMatch.tap()
         app.buttons["="].firstMatch.tap()
         XCTAssert(app.buttons["resultString"].staticTexts["9"].firstMatch.exists)
     }
     
     func testAC() throws {
         app.launch()
-        app.buttons["7"].tap()
-        app.buttons["7"].tap()
+        app.buttons["SevenButton"].tap()
+        app.buttons["SevenButton"].tap()
         app.buttons["+"].tap()
         app.buttons["ZeroButton"].tap()
         app.buttons["="].tap()
@@ -64,7 +67,7 @@ final class UITestsLaunchTests: XCTestCase {
     
     func testRecorded() throws {
         app.launch()
-        let button = app.buttons["2"]
+        let button = app.buttons["TwoButton"]
         button.tap()
         app.buttons["+"].tap()
         button.tap()
@@ -85,5 +88,32 @@ final class UITestsLaunchTests: XCTestCase {
     func testSafari() throws {
         safari.launch()
         app.launch()
+    }
+    
+    func testDivision() throws {
+        app.launch()
+        app.buttons["FiveButton"].tap()
+        app.buttons["÷"].tap()
+        app.buttons["FiveButton"].tap()
+        app.buttons["="].tap()
+        XCTAssert(app.buttons["resultString"].staticTexts["1"].exists)
+    }
+
+    func testMultiplication() throws {
+        app.launch()
+        app.buttons["FiveButton"].tap()
+        app.buttons["x"].tap()
+        app.buttons["FiveButton"].tap()
+        app.buttons["="].tap()
+        XCTAssert(app.buttons["resultString"].staticTexts["25"].exists)
+    }
+
+    func testSubtraction() throws {
+        app.launch()
+        app.buttons["FiveButton"].tap()
+        app.buttons["-"].tap()
+        app.buttons["FiveButton"].tap()
+        app.buttons["="].tap()
+        XCTAssert(app.buttons["resultString"].staticTexts["0"].exists)
     }
 }

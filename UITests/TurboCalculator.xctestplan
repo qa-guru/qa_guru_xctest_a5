@@ -26,11 +26,14 @@
       "selectedTests" : [
         "UITestsLaunchTests\/testAC()",
         "UITestsLaunchTests\/testDebugTree()",
+        "UITestsLaunchTests\/testDivision()",
         "UITestsLaunchTests\/testFail()",
+        "UITestsLaunchTests\/testMultiplication()",
         "UITestsLaunchTests\/testRecorded()",
         "UITestsLaunchTests\/testSafari()",
         "UITestsLaunchTests\/testScreenshot()",
         "UITestsLaunchTests\/testSkip()",
+        "UITestsLaunchTests\/testSubtraction()",
         "UITestsLaunchTests\/testSum9()",
         "UITestsLaunchTests\/testSum9Faster()"
       ],
