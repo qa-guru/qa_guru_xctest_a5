@@ -1,0 +1,129 @@
+
+name: UI Tests (Xcode)
+
+on:
+  workflow_dispatch:
+    inputs:
+      device:
+        description: "iOS Simulator device name"
+        type: choice
+        required: true
+        options:
+          - "iPhone 15"
+          - "iPhone 15 Pro"
+          - "iPhone SE (3rd generation)"
+          - "iPad (10th generation)"
+        default: "iPhone 15"
+      os:
+        description: "iOS version for simulator (must exist on runner image)"
+        type: choice
+        required: true
+        options:
+          - "17.5"
+          - "17.4"
+          - "17.2"
+          - "latest"
+        default: "17.5"
+      testplan:
+        description: "Xcode Test Plan name (leave empty to use default from scheme)"
+        type: string
+        required: false
+        default: ""
+
+jobs:
+  ui-tests:
+    runs-on: macos-14
+    env:
+      SCHEME: "TurboCalculator"
+      PROJECT: "TurboCalculator.xcodeproj"
+      XCRESULT_BUNDLE: "TestResults.xcresult"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Xcode version
+        run: |
+          xcodebuild -version
+          xcode-select -p
+
+      - name: Show available simulators (debug help)
+        run: xcrun simctl list devices available
+
+      - name: Add commit info to summary
+        id: commitmsg
+        shell: bash
+        run: |
+          RAW_MSG="${{ github.event.head_commit.message }}"
+          if [ -z "$RAW_MSG" ]; then
+            RAW_MSG="$(git log -1 --pretty=%B $GITHUB_SHA)"
+          fi
+
+          echo "### Commit Info" >> "$GITHUB_STEP_SUMMARY"
+          echo "- SHA: \`${GITHUB_SHA}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Message:" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          echo "$RAW_MSG" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "msg<<EOF" >> $GITHUB_OUTPUT
+          echo "$RAW_MSG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Prepare xcodebuild arguments
+        id: args
+        shell: bash
+        run: |
+          DEVICE="${{ inputs.device }}"
+          OS="${{ inputs.os }}"
+          TESTPLAN_INPUT="${{ inputs.testplan }}"
+
+          if [ "$OS" = "latest" ]; then
+            DEST="platform=iOS Simulator,name=${DEVICE}"
+          else
+            DEST="platform=iOS Simulator,name=${DEVICE},OS=${OS}"
+          fi
+
+          if [ -n "$TESTPLAN_INPUT" ]; then
+            echo "testplan_flag=-testPlan" >> $GITHUB_OUTPUT
+            echo "testplan_value=${TESTPLAN_INPUT}" >> $GITHUB_OUTPUT
+          else
+            echo "testplan_flag=" >> $GITHUB_OUTPUT
+            echo "testplan_value=" >> $GITHUB_OUTPUT
+          fi
+
+          echo "destination=${DEST}" >> $GITHUB_OUTPUT
+
+          echo "### Test Run Setup" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Device: \`${DEVICE}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- OS: \`${OS}\`" >> "$GITHUB_STEP_SUMMARY"
+          if [ -n "$TESTPLAN_INPUT" ]; then
+            echo "- Test Plan: \`${TESTPLAN_INPUT}\`" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "- Test Plan: (default from scheme)" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Run UI tests (xcodebuild)
+        shell: bash
+        run: |
+          set -o pipefail
+         
+          xcodebuild \
+            -project "$PROJECT" \
+            -scheme "$SCHEME" \
+            -destination "${{ steps.args.outputs.destination }}" \
+            ${{ steps.args.outputs.testplan_flag }} "${{ steps.args.outputs.testplan_value }}" \
+            clean test \
+            -resultBundlePath "$XCRESULT_BUNDLE"
+
+      - name: Upload .xcresult artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: xcresult
+          path: ${{ env.XCRESULT_BUNDLE }}
+          if-no-files-found: error
+          retention-days: 7
