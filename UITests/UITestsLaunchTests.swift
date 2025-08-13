@@ -11,11 +11,12 @@ final class UITestsLaunchTests: XCTestCase {
 
     let app = XCUIApplication()
     let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
-
+    
+    
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
-
+    
     func testScreenshot() throws {
         app.launch()
 
@@ -85,5 +86,33 @@ final class UITestsLaunchTests: XCTestCase {
     func testSafari() throws {
         safari.launch()
         app.launch()
+    }
+    
+    func testMultiply() throws {
+        app.launch()
+        app.buttons["TwoButton"].tap()
+//        print (app.debugDescription)
+        app.buttons["x"].tap()
+        app.buttons["ThreeButton"].tap()
+        app.buttons["="].tap()
+        XCTAssert(app.buttons["resultString"].staticTexts["6"].exists)
+    }
+
+    func testDivide() throws {
+        app.launch()
+        app.buttons["EightButton"].tap()
+        app.buttons["÷"].tap()
+        app.buttons["FourButton"].tap()
+        app.buttons["="].tap()
+        XCTAssert(app.buttons["resultString"].staticTexts["2"].exists)
+    }
+
+    func testNegativeResult() throws {
+        app.launch()
+        app.buttons["ThreeButton"].tap()
+        app.buttons["-"].tap()
+        app.buttons["FiveButton"].tap()
+        app.buttons["="].tap()
+        XCTAssert(app.buttons["resultString"].staticTexts["-2"].exists)
     }
 }
