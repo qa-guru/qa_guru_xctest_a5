@@ -78,6 +78,7 @@ final class UITestsLaunchTests: XCTestCase {
     }
     
     func testFail() throws {
+        XCTExpectFailure("Этот тест должен падать, проверка фреймворка")
         app.launch()
         XCTFail("Очень нужно!")
     }
@@ -85,5 +86,51 @@ final class UITestsLaunchTests: XCTestCase {
     func testSafari() throws {
         safari.launch()
         app.launch()
+    }
+    
+    func testSumDecimal() throws {
+        app.launch()
+        app.buttons["1"].tap()
+        app.buttons["."].tap()
+        app.buttons["1"].tap()
+        app.buttons["+"].tap()
+        app.buttons["2"].tap()
+        app.buttons["."].tap()
+        app.buttons["3"].tap()
+        app.buttons["="].tap()
+        
+        XCTAssertEqual(app.staticTexts["CurrentText"].label, "1.1+2.3")
+        XCTAssert(app.buttons["resultString"].staticTexts["3.40"].exists)
+    }
+    
+    func testMultiply() throws {
+        app.launch()
+        app.buttons["1"].tap()
+        app.buttons["ZeroButton"].tap()
+        app.buttons["x"].tap()
+        app.buttons["3"].tap()
+        app.buttons["="].tap()
+        
+        XCTAssertEqual(app.staticTexts["CurrentText"].label, "10*3")
+        XCTAssert(app.buttons["resultString"].staticTexts["30"].exists)
+    }
+    
+    func testDivideByZero() throws {
+        app.launch()
+        app.activate()
+        app.buttons["1"].tap()
+        app.buttons["÷"].tap()
+        app.buttons["ZeroButton"].tap()
+        app.buttons["="].tap()
+        
+        let alert = app.alerts["Ошибка"]
+        XCTAssertTrue(alert.waitForExistence(timeout: 2))
+        
+        XCTAssert(alert.staticTexts["На ноль делить нельзя!"].exists)
+        
+        app.buttons["OK"].tap()
+        
+        XCTAssertEqual(app.staticTexts["CurrentText"].label, "0")
+        XCTAssert(app.buttons["resultString"].staticTexts["0"].exists)
     }
 }
